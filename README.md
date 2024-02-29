@@ -1,6 +1,6 @@
 # Generateur de password
 
-Dans un projet Maven implémentez les classes RandomPassword, InitializationException et BadPasswordException tel que
+Dans un projet Maven implémentez les classes **RandomPassword**, **InitializationException** et **BadPasswordException** tel que
 
 groupId = org.heg<br>
 artifactId = random-password-generator<br>
@@ -18,5 +18,6 @@ version = 1.0.0-SNAPSHOT<br>
 - Générer un mot de passe de longueur 20 avec des majuscules uniquement
 <br>
 A l'aide de Maven mettre à disposition ce generateur de password dans le local repository en version 1.0.0-SNAPSHOT
+<br>
 <br>
 Créez un deuxième projet Maven, ajoutez la lib random-password-generator dans les dependencies. Dans une classe Main utilisez le generateur de password et vérifiez son bon fonctionnement.
