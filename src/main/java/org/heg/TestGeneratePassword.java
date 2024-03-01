@@ -29,6 +29,9 @@ public class TestGeneratePassword {
             String pass2 = randomPassword.generatePassword(8);
             System.out.printf("My generated password %s%n", pass2);
 
+            String base64EncodedPassword = randomPassword.generateBase64EncodedPassword(8);
+            System.out.printf("My generated base64 password %s%n", base64EncodedPassword);
+
             randomPassword.useCapitalize(false);
             randomPassword.generatePassword(8);
         } catch (InitializationException | BadPasswordException e) {

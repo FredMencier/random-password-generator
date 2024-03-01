@@ -11,6 +11,8 @@ version = 1.0.0-SNAPSHOT<br>
 - La classe RandomPassword peut générer des passwords avec des chiffres et/ou des lettres et/ou des majuscules
 - La classe InitializationException est levée si on essaie d'initialiser la classe RandomPassword avec des limites interdites
 - La classe BadPasswordException est levée si on essaie de generer un password qui ne respecte pas les contraintes
+- Avec les dépendences Maven, utilisez la lib **commons-codec** d'apache avec la classe Base64 pour réaliser l'encryption en base64 (Base64.encodeBase64String())
+- Créer un fichier pwdGenerator.properties pour initialiser les booleans **useLetter**, **useNumber** et **useCapitalize** au niveau du contructeur de la classe RandomPassword
 
 - Créer une classe de test avec une méthode main() afin de tester votre code
 - Générer un mot de passe de longueur 8 avec des lettres, des chiffres et des majuscules

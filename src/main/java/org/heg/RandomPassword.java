@@ -1,10 +1,16 @@
 package org.heg;
 
+import org.apache.commons.codec.EncoderException;
+import org.apache.commons.codec.binary.Base16;
+import org.apache.commons.codec.binary.Base64;
 import org.heg.exception.BadPasswordException;
 import org.heg.exception.InitializationException;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 
 public class RandomPassword implements IRandomPassword{
 
@@ -16,11 +22,11 @@ public class RandomPassword implements IRandomPassword{
 
     private final int maxLength;
 
-    private boolean useLetter = true;
+    private boolean useLetter;
 
-    private boolean useNumber = true;
+    private boolean useNumber;
 
-    private boolean useCapitalize = true;
+    private boolean useCapitalize;
 
     public RandomPassword(int minLength, int maxLength) throws InitializationException {
         if (minLength < MIN_LENGTH) {
@@ -31,6 +37,24 @@ public class RandomPassword implements IRandomPassword{
         }
         this.minLength = minLength;
         this.maxLength = maxLength;
+        try {
+            initConfig();
+        } catch (IOException e) {
+            throw new InitializationException("Unable to read property file");
+        }
+    }
+
+    private void initConfig() throws IOException {
+        Properties prop = new Properties();
+        InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream("pwdGenerator.properties");
+        prop.load(resourceAsStream);
+        useLetter = Boolean.parseBoolean(prop.getProperty("useLetter"));
+        useNumber = Boolean.parseBoolean(prop.getProperty("useNumber"));
+        useCapitalize = Boolean.parseBoolean(prop.getProperty("useCapitalize"));
+    }
+
+    public String generateBase64EncodedPassword(int length) throws BadPasswordException {
+        return Base64.encodeBase64String(generatePassword(length).getBytes());
     }
 
 

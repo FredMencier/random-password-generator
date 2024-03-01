@@ -16,6 +16,14 @@ public interface IRandomPassword {
     String generatePassword(int length) throws BadPasswordException;
 
     /**
+     * Donne un password encodé en base64
+     * @param length
+     * @return
+     * @throws BadPasswordException
+     */
+    String generateBase64EncodedPassword(int length) throws BadPasswordException;
+
+    /**
      * Utilise des nombres dans le password
      * @param useNbs
      */
