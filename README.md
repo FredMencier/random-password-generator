@@ -21,3 +21,5 @@ A l'aide de Maven mettre à disposition ce generateur de password dans le local 
 <br>
 <br>
 Créez un deuxième projet Maven, ajoutez la lib random-password-generator dans les dependencies. Dans une classe Main utilisez le generateur de password et vérifiez son bon fonctionnement.
+
+-> On vous donne l'interface IRandomPassword.java
