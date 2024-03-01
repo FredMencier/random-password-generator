@@ -90,17 +90,26 @@ public class RandomPassword implements IRandomPassword{
         return (int) (Math.random() * (max - min)) + min;
     }
 
-    @Override
+    /**
+     * Utilise des nombres dans le password
+     * @param useNbs
+     */
     public void useNumbers(boolean useNbs) {
         this.useNumber = useNbs;
     }
 
-    @Override
+    /**
+     * Utilise des lettres dans le password
+     * @param useLetters
+     */
     public void useLetters(boolean useLetters) {
         this.useLetter = useLetters;
     }
 
-    @Override
+    /**
+     * Utilise des majuscules dans le password
+     * @param useCapitalize
+     */
     public void useCapitalize(boolean useCapitalize) {
         this.useCapitalize = useCapitalize;
     }

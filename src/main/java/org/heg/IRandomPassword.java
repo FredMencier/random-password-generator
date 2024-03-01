@@ -22,23 +22,4 @@ public interface IRandomPassword {
      * @throws BadPasswordException
      */
     String generateBase64EncodedPassword(int length) throws BadPasswordException;
-
-    /**
-     * Utilise des nombres dans le password
-     * @param useNbs
-     */
-    void useNumbers(boolean useNbs);
-
-    /**
-     * Utilise des lettres dans le password
-     * @param useLetters
-     */
-    void useLetters(boolean useLetters);
-
-    /**
-     * Utilise des majuscules dans le password
-     * @param useCapitalize
-     */
-    void useCapitalize(boolean useCapitalize);
-
 }
